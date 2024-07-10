@@ -18,8 +18,8 @@ local function load_options()
 		cmdheight = 1, -- 0, 1, 2
 		cmdwinheight = 5,
 		complete = ".,w,b,k,kspell",
-		completeopt = "menuone,noselect,popup",
-		concealcursor = "niv",
+		-- completeopt = "menuone,noselect,popup",
+	       	concealcursor = "niv",
 		conceallevel = 0,
 		cursorcolumn = true,
 		cursorline = true,
@@ -121,7 +121,8 @@ local function load_options()
 	end
 
 	for name, value in pairs(require("modules.utils").extend_config(global_local, "user.options")) do
-		vim.api.nvim_set_option_value(name, value, {})
+		-- vim.api.nvim_set_option_value(name, value, {})
+		vim.o[name] = value
 	end
 end
 

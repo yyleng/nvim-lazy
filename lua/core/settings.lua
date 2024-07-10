@@ -114,7 +114,7 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"lua_ls",
 	"pylsp",
-	"gopls",
+	--	"gopls",
 }
 
 -- Set the general-purpose servers that will be installed during bootstrap here.
@@ -124,8 +124,8 @@ settings["lsp_deps"] = {
 ---@type string[]
 settings["null_ls_deps"] = {
 	"clang_format",
-	"gofumpt",
-	"goimports",
+	--	"gofumpt",
+	--	"goimports",
 	"prettier",
 	"shfmt",
 	"stylua",

@@ -4,13 +4,10 @@ tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
--- This is specifically for fcitx5 users who code in languages other than English
--- tool["pysan3/fcitx5.nvim"] = {
--- 	lazy = true,
--- 	event = "BufReadPost",
--- 	cond = vim.fn.executable("fcitx5-remote") == 1,
--- 	config = require("tool.fcitx5"),
--- }
+
+-- @func: 代码层级树
+-- @keymap: 鼠标
+-- @status: true ---------- all done
 tool["Bekaboo/dropbar.nvim"] = {
 	lazy = false,
 	config = require("tool.dropbar"),
@@ -19,6 +16,10 @@ tool["Bekaboo/dropbar.nvim"] = {
 		"nvim-telescope/telescope-fzf-native.nvim",
 	},
 }
+
+-- @func: 目录树 [OK]
+-- @keymap: <keymap>
+-- @status: true ---------- all done
 tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
 	cmd = {
@@ -30,11 +31,19 @@ tool["nvim-tree/nvim-tree.lua"] = {
 	},
 	config = require("tool.nvim-tree"),
 }
+
+-- @func: 复制修正到系统剪贴板 [OK]
+-- @keymap: y
+-- @status: true ---------- all done
 tool["ibhagwan/smartyank.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = require("tool.smartyank"),
 }
+
+-- @func: 运行代码片段 [OK]
+-- @keymap: <keymap>
+-- @status: true ---------- all done
 tool["michaelb/sniprun"] = {
 	lazy = true,
 	-- You need to cd to `~/.local/share/nvim/site/lazy/sniprun/` and execute `bash ./install.sh`,
@@ -43,6 +52,10 @@ tool["michaelb/sniprun"] = {
 	cmd = { "SnipRun", "SnipReset", "SnipInfo" },
 	config = require("tool.sniprun"),
 }
+
+-- @func: 虚拟终端 [OK]
+-- @keymap: <keymap>
+-- @status: true ---------- all done
 tool["akinsho/toggleterm.nvim"] = {
 	lazy = true,
 	cmd = {
@@ -55,16 +68,28 @@ tool["akinsho/toggleterm.nvim"] = {
 	},
 	config = require("tool.toggleterm"),
 }
+
+-- @func: 展示代码错误、定义、引用等 [OK]
+-- @keymap: <keymap>
+-- @status: true ---------- all done
 tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 	config = require("tool.trouble"),
 }
+
+-- @func: 快捷键提示 [OK]
+-- @keymap: <keymap>
+-- @status: true ---------- all done
 tool["folke/which-key.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("tool.which-key"),
 }
+
+-- @func: 命令行模糊搜索以及自动补充 [OK]
+-- @keymap: / | : | ?
+-- @status: true ---------- all done
 tool["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",

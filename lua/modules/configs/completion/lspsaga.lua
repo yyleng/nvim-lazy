@@ -27,6 +27,7 @@ return function()
 
 	require("modules.utils").load_plugin("lspsaga", {
 		-- Breadcrumbs: https://nvimdev.github.io/lspsaga/breadcrumbs/
+		-- no use
 		symbol_in_winbar = {
 			enable = false,
 			separator = " " .. icons.ui.Separator,
@@ -37,6 +38,7 @@ return function()
 			delay = 100,
 		},
 		-- Callhierarchy: https://nvimdev.github.io/lspsaga/callhierarchy/
+		-- no use
 		callhierarchy = {
 			layout = "float",
 			keys = {
@@ -51,6 +53,7 @@ return function()
 			},
 		},
 		-- Code Action: https://nvimdev.github.io/lspsaga/codeaction/
+		-- ga
 		code_action = {
 			num_shortcut = true,
 			only_in_cursor = false,
@@ -111,7 +114,7 @@ return function()
 			project_max_width = 0.5,
 			project_max_height = 0.5,
 			keys = {
-				quit = "<C-c>",
+				quit = "<Esc>",
 				exec = "<CR>",
 				select = "x",
 			},

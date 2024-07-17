@@ -29,8 +29,11 @@ return function()
 			p = {
 				name = icons.ui.Package .. " Package",
 			},
+			r = {
+				name = icons.git.Rename .. " Rename",
+			},
 			s = {
-				name = icons.cmp.tmux .. "Session",
+				name = icons.misc.Code .. " Snip Run Code",
 			},
 			S = {
 				name = icons.ui.Search .. " Search",

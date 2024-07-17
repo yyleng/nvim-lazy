@@ -52,8 +52,9 @@ settings["server_formatting_block_list"] = {
 }
 
 -- Set it to false if you want to turn off LSP Inlay Hints
+-- 是否开启参数类型的虚拟文本
 ---@type boolean
-settings["lsp_inlayhints"] = true
+settings["lsp_inlayhints"] = false
 
 -- Set it to false if diagnostics virtual text is annoying.
 -- If disabled, you may browse lsp diagnostics using trouble.nvim (press `gt` to toggle it).
@@ -86,7 +87,8 @@ settings["palette_overwrite"] = {}
 -- Set the colorscheme to use here.
 -- Available values are: `catppuccin`, `catppuccin-latte`, `catppucin-mocha`, `catppuccin-frappe`, `catppuccin-macchiato`.
 ---@type string
-settings["colorscheme"] = "catppuccin"
+-- settings["colorscheme"] = "catppuccin"
+settings["colorscheme"] = "gruvbox"
 
 -- Set it to true if your terminal has transparent background.
 ---@type boolean

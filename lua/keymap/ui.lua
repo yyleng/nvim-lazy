@@ -5,22 +5,23 @@ local map_cr = bind.map_cr
 -- local map_callback = bind.map_callback
 
 local plug_map = {
-	-- Plugin: bufferline.nvim
-	["n|<A-i>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent():with_desc("buffer: Switch to next"),
-	["n|<A-o>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent():with_desc("buffer: Switch to prev"),
-	["n|<A-S-i>"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent():with_desc("buffer: Move current to next"),
-	["n|<A-S-o>"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent():with_desc("buffer: Move current to prev"),
-	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap():with_desc("buffer: Sort by extension"),
-	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap():with_desc("buffer: Sort by directory"),
-	["n|<A-1>"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent():with_desc("buffer: Goto buffer 1"),
-	["n|<A-2>"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent():with_desc("buffer: Goto buffer 2"),
-	["n|<A-3>"] = map_cr("BufferLineGoToBuffer 3"):with_noremap():with_silent():with_desc("buffer: Goto buffer 3"),
-	["n|<A-4>"] = map_cr("BufferLineGoToBuffer 4"):with_noremap():with_silent():with_desc("buffer: Goto buffer 4"),
-	["n|<A-5>"] = map_cr("BufferLineGoToBuffer 5"):with_noremap():with_silent():with_desc("buffer: Goto buffer 5"),
-	["n|<A-6>"] = map_cr("BufferLineGoToBuffer 6"):with_noremap():with_silent():with_desc("buffer: Goto buffer 6"),
-	["n|<A-7>"] = map_cr("BufferLineGoToBuffer 7"):with_noremap():with_silent():with_desc("buffer: Goto buffer 7"),
-	["n|<A-8>"] = map_cr("BufferLineGoToBuffer 8"):with_noremap():with_silent():with_desc("buffer: Goto buffer 8"),
-	["n|<A-9>"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent():with_desc("buffer: Goto buffer 9"),
+	-- Plugin: windows.nvim
+	["n|<C-w>z"] = map_cr("WindowsMaximize"):with_noremap():with_silent():with_desc("windows: Maximize window"),
+	["n|<C-w>_"] = map_cr("WindowsMaximizeVertically")
+		:with_noremap()
+		:with_silent()
+		:with_desc("windows: Maximize vertically"),
+	["n|<C-w>|"] = map_cr("WindowsMaximizeHorizontally")
+		:with_noremap()
+		:with_silent()
+		:with_desc("windows: Maximize horizontally"),
+	["n|<C-w>="] = map_cr("WindowsEqualize"):with_noremap():with_silent():with_desc("windows: Equalize window"),
+
+	-- Plugin: todo-comments.nvim
+	["n|<leader>td"] = map_cr("TodoQuickFix")
+		:with_noremap()
+		:with_silent()
+		:with_desc("todo-comments: Open todo list of project"),
 }
 
 bind.nvim_load_mapping(plug_map)
@@ -54,49 +55,50 @@ function mapping.gitsigns(buf)
 			:with_buffer(buf)
 			:with_expr()
 			:with_desc("git: Goto prev hunk"),
-		["n|<leader>gs"] = bind.map_callback(function()
+		["n|]s"] = bind.map_callback(function()
 			actions.stage_hunk()
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Stage hunk"),
-		["v|<leader>gs"] = bind.map_callback(function()
+
+		["v|]s"] = bind.map_callback(function()
 			actions.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Stage hunk"),
-		["n|<leader>gu"] = bind.map_callback(function()
+		["n|]u"] = bind.map_callback(function()
 			actions.undo_stage_hunk()
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Undo stage hunk"),
-		["n|<leader>gr"] = bind.map_callback(function()
+		["n|]r"] = bind.map_callback(function()
 			actions.reset_hunk()
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Reset hunk"),
-		["v|<leader>gr"] = bind.map_callback(function()
+		["v|]r"] = bind.map_callback(function()
 			actions.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Reset hunk"),
-		["n|<leader>gR"] = bind.map_callback(function()
+		["n|]R"] = bind.map_callback(function()
 			actions.reset_buffer()
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Reset buffer"),
-		["n|<leader>gp"] = bind.map_callback(function()
+		["n|]ph"] = bind.map_callback(function()
 			actions.preview_hunk()
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Preview hunk"),
-		["n|<leader>gb"] = bind.map_callback(function()
+		["n|]b"] = bind.map_callback(function()
 			actions.blame_line({ full = true })
 		end)
 			:with_buffer(buf)
 			:with_desc("git: Blame line"),
 		-- Text objects
 		["ox|ih"] = bind.map_callback(function()
-			actions.text_object()
+			actions.select_hunk()
 		end):with_buffer(buf),
 	}
 	bind.nvim_load_mapping(map)

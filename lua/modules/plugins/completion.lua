@@ -15,17 +15,20 @@ completion["neovim/nvim-lspconfig"] = {
 		},
 	},
 }
+
 completion["nvimdev/lspsaga.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.lspsaga"),
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
+
 completion["stevearc/aerial.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.aerial"),
 }
+
 completion["DNLHC/glance.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
@@ -82,12 +85,12 @@ if use_copilot then
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = require("completion.copilot"),
-		dependencies = {
-			{
-				"zbirenbaum/copilot-cmp",
-				config = require("completion.copilot-cmp"),
-			},
-		},
+		-- dependencies = {
+		-- 	{
+		-- 		"zbirenbaum/copilot-cmp",
+		-- 		config = require("completion.copilot-cmp"),
+		-- 	},
+		-- },
 	}
 end
 

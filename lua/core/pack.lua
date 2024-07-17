@@ -1,3 +1,4 @@
+-- @brief: load plugins and lazy.nvim
 local fn, api = vim.fn, vim.api
 local global = require("core.global")
 local is_mac = global.is_mac
@@ -33,6 +34,7 @@ function Lazy:load_plugins()
 			)
 	end
 
+	-- get all plugins list
 	local get_plugins_list = function()
 		local list = {}
 		local plugins_list = vim.split(fn.glob(modules_dir .. "/plugins/*.lua"), "\n")
@@ -63,6 +65,7 @@ function Lazy:load_plugins()
 end
 
 function Lazy:load_lazy()
+	-- git clone lazy.nvim if not exists
 	if not vim.loop.fs_stat(lazy_path) then
 		local lazy_repo = use_ssh and "git@github.com:folke/lazy.nvim.git " or "https://github.com/folke/lazy.nvim.git "
 		api.nvim_command("!git clone --filter=blob:none --branch=stable " .. lazy_repo .. lazy_path)

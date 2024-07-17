@@ -10,6 +10,10 @@ local core_map = {
 	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent():with_desc("edit: Save file"),
 	["n|Y"] = map_cmd("y$"):with_desc("edit: Yank text to EOL"),
 	["n|D"] = map_cmd("d$"):with_desc("edit: Delete text to EOL"),
+	["n|H"] = map_cmd("^"),
+	["n|L"] = map_cmd("g_"),
+	["n|<leader>q"] = map_cmd(":q!<CR>"),
+	["n|<leader>w"] = map_cmd(":w<CR>"),
 	["n|n"] = map_cmd("nzzzv"):with_noremap():with_desc("edit: Next search result"),
 	["n|N"] = map_cmd("Nzzzv"):with_noremap():with_desc("edit: Prev search result"),
 	["n|J"] = map_cmd("mzJ`z"):with_noremap():with_desc("edit: Join next line"),
@@ -31,7 +35,6 @@ local core_map = {
 	["n|<A-l>"] = map_cr("vertical resize +3"):with_silent():with_desc("window: Resize +3 vertically"),
 	["n|<A-j>"] = map_cr("resize -3"):with_silent():with_desc("window: Resize -3 horizontally"),
 	["n|<A-k>"] = map_cr("resize +3"):with_silent():with_desc("window: Resize +3 horizontally"),
-	["n|<C-q>"] = map_cr("wq"):with_desc("edit: Save file and quit"),
 	["n|<A-S-q>"] = map_cr("q!"):with_desc("edit: Force quit"),
 	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"):with_desc("edit: Toggle spell check"),
 	["n|<leader>bn"] = map_cu("enew"):with_noremap():with_silent():with_desc("buffer: New"),
@@ -44,7 +47,10 @@ local core_map = {
 	["i|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("edit: Move cursor to left"),
 	["i|<C-a>"] = map_cmd("<ESC>^i"):with_noremap():with_desc("edit: Move cursor to line start"),
 	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"):with_desc("edit: Save file"),
-	["i|<C-q>"] = map_cmd("<Esc>:wq<CR>"):with_desc("edit: Save file and quit"),
+	["i|<C-e>"] = map_cmd("<End>"):with_noremap(), -- 光标跳转到行尾
+	["i|<C-f>"] = map_cmd("<Right>"):with_noremap(), -- 光标向行尾移动
+	["i|<C-d>"] = map_cmd("<Del>"):with_noremap(), -- 光标向后删除-- 另外<C-h> 是光标向前删除
+	["i|<C-k>"] = map_cmd("()<Esc>i"):with_noremap(), -- 增加()
 	-- Command mode
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap():with_desc("edit: Left"),
 	["c|<C-f>"] = map_cmd("<Right>"):with_noremap():with_desc("edit: Right"),
@@ -58,8 +64,33 @@ local core_map = {
 	-- Visual mode
 	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_desc("edit: Move this line down"),
 	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_desc("edit: Move this line up"),
+	["v|H"] = map_cmd("^"),
+	["v|L"] = map_cmd("g_"),
 	["v|<"] = map_cmd("<gv"):with_desc("edit: Decrease indent"),
 	["v|>"] = map_cmd(">gv"):with_desc("edit: Increase indent"),
+	-- 摒弃上下左右键
+	["i|<Up>"] = map_cmd("<Nop>"):with_noremap(),
+	["i|<Down>"] = map_cmd("<Nop>"):with_noremap(),
+	["i|<Left>"] = map_cmd("<Nop>"):with_noremap(),
+	["i|<Right>"] = map_cmd("<Nop>"):with_noremap(),
+	["v|<Up>"] = map_cmd("<Nop>"):with_noremap(),
+	["v|<Down>"] = map_cmd("<Nop>"):with_noremap(),
+	["v|<Left>"] = map_cmd("<Nop>"):with_noremap(),
+	["v|<Right>"] = map_cmd("<Nop>"):with_noremap(),
+	["c|<Up>"] = map_cmd("<Nop>"),
+	["c|<Down>"] = map_cmd("<Nop>"),
+	["c|<Left>"] = map_cmd("<Nop>"),
+	["c|<Right>"] = map_cmd("<Nop>"),
+	["c|w!!"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"),
+	-- Windows split
+	["n|s"] = map_cmd("<Nop>"),
+	["n|sv"] = map_cmd(":vsplit<CR>"),
+	["n|sh"] = map_cmd(":split<CR>"),
+	["n|st"] = map_cmd(":tabnew<CR>"),
+	["n|<Left>"] = map_cmd(":vertical res-5<CR>"),
+	["n|<Right>"] = map_cmd(":vertical res+5<CR>"),
+	["n|<Up>"] = map_cmd(":res-5<CR>"),
+	["n|<Down>"] = map_cmd(":res+5<CR>"),
 }
 
 bind.nvim_load_mapping(core_map)

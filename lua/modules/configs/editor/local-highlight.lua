@@ -1,6 +1,6 @@
 return function()
 	require("modules.utils").load_plugin("local-highlight", {
-		hlgroup = "IlluminatedWordText",
+		hlgroup = "LocalHighlight",
 		insert_mode = false,
 	})
 end

@@ -2,12 +2,12 @@ return function()
 	local mapping = require("keymap.ui")
 	require("modules.utils").load_plugin("gitsigns", {
 		signs = {
-			add = { text = "┃" },
-			change = { text = "┃" },
-			delete = { text = "_" },
-			topdelete = { text = "‾" },
-			changedelete = { text = "~" },
-			untracked = { text = "┆" },
+			add = { text = "A" },
+			change = { text = "M" },
+			delete = { text = "D" },
+			topdelete = { text = "D" },
+			changedelete = { text = "D" },
+			untracked = { text = "U" },
 		},
 		auto_attach = true,
 		on_attach = mapping.gitsigns,

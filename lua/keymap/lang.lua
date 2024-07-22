@@ -7,6 +7,11 @@ local map_cr = bind.map_cr
 local plug_map = {
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent():with_desc("tool: Preview markdown"),
+
+	-- Plugin Leetcode
+	["n|<leader>lc"] = map_cr("Leet"):with_noremap():with_silent():with_desc("leetcode: open it"),
+	---- subkey
+	---- ../modules/configs/lang/leetcode.lua:8
 }
 
 bind.nvim_load_mapping(plug_map)

@@ -28,13 +28,38 @@ lang["Saecki/crates.nvim"] = {
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
+-- @func: markdown
+-- @keymap: ../../keymap/lang.lua:9
+-- @status: [DONE:]
 lang["iamcco/markdown-preview.nvim"] = {
 	lazy = true,
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }
+
 lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
+}
+-- @func: Leetcode
+-- @keymap: ../../keymap/lang.lua:12
+-- @status: [DONE:]
+lang["kawre/leetcode.nvim"] = {
+	lazy = true,
+	build = ":TSUpdate html",
+	cmd = { "Leet" },
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+		"nvim-treesitter/nvim-treesitter",
+		"rcarriga/nvim-notify",
+		"nvim-tree/nvim-web-devicons",
+		{
+			"3rd/image.nvim",
+			config = require("lang.image"),
+		},
+	},
+	config = require("lang.leetcode"),
 }
 return lang

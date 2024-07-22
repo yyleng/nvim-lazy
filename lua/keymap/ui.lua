@@ -18,7 +18,7 @@ local plug_map = {
 	["n|<C-w>="] = map_cr("WindowsEqualize"):with_noremap():with_silent():with_desc("windows: Equalize window"),
 
 	-- Plugin: todo-comments.nvim
-	["n|<leader>td"] = map_cr("TodoQuickFix")
+	["n|<leader>td"] = map_cr("TodoTrouble")
 		:with_noremap()
 		:with_silent()
 		:with_desc("todo-comments: Open todo list of project"),

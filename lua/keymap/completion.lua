@@ -17,6 +17,7 @@ function mapping.lsp(buf)
 		["n|<leader>lr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
 		-- ["n|go"] = map_cr("AerialToggle!"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
 		["n|go"] = map_cr("Lspsaga outline"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
+		-- ["n|go"] = map_cr("Trouble symbols"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
 		["n|gto"] = map_callback(function()
 				require("telescope").extensions.aerial.aerial()
 			end)
@@ -41,7 +42,8 @@ function mapping.lsp(buf)
 			:with_desc("lsp: Code action for cursor"),
 		-- ["n|gd"] = map_cr("Glance definitions"):with_silent():with_buffer(buf):with_desc("lsp: Preview definition"),
 		["n|gd"] = map_cr("Lspsaga goto_definition"):with_silent():with_buffer(buf):with_desc("lsp: Goto definition"),
-		["n|gr"] = map_cr("Glance references"):with_silent():with_buffer(buf):with_desc("lsp: Show reference"),
+		-- ["n|gr"] = map_cr("Glance references"):with_silent():with_buffer(buf):with_desc("lsp: Show reference"),
+		["n|gr"] = map_cr("Trouble lsp_references"):with_silent():with_buffer(buf):with_desc("lsp: Show reference"),
 		["n|gm"] = map_cr("Glance implementations")
 			:with_silent()
 			:with_buffer(buf)

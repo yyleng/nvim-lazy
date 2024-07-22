@@ -43,6 +43,15 @@ local plug_map = {
 	-- Plugin: diffview.nvim
 	["n|<leader>gd"] = map_cr("DiffviewOpen"):with_silent():with_noremap():with_desc("git: Show diff"),
 	["n|<leader>gD"] = map_cr("DiffviewClose"):with_silent():with_noremap():with_desc("git: Close diff"),
+	["v|<leader>gf"] = map_cr("DiffviewFileHistory")
+		:with_silent()
+		:with_noremap()
+		:with_desc("git: Show special part history of file "),
+	["n|<leader>gf"] = map_cr("DiffviewFileHistory %"):with_silent():with_noremap():with_desc("git: show file history"),
+	["n|<leader>ga"] = map_cr("DiffviewFileHistory")
+		:with_silent()
+		:with_noremap()
+		:with_desc("git: show branch all file history"),
 
 	-- Plugin: hop.nvim
 	["nv|<leader>h"] = map_cmd("<Cmd>HopWordMW<CR>"):with_noremap():with_desc("jump: Goto word"),
@@ -94,7 +103,7 @@ local plug_map = {
 	-- Plugin: nvim-treehopper
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent():with_desc("jump: Operate across syntax tree"),
 
-	-- Plugin: diffview.nvim
+	-- Plugin: Trans.nvim
 	["n|mm"] = map_cr("Translate"):with_silent():with_noremap():with_desc("Trans: translate current word"),
 	["n|mi"] = map_cr("TranslateInput"):with_silent():with_noremap():with_desc("Trans: translate input"),
 }

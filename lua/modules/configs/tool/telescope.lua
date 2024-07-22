@@ -42,6 +42,34 @@ return function()
 			file_sorter = require("telescope.sorters").get_fuzzy_file,
 			generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 			buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+			mappings = {
+				i = {
+					["<C-/>"] = "which_key",
+					["<esc>"] = "close",
+					["<C-j>"] = "move_selection_next",
+					["<C-k>"] = "move_selection_previous",
+					["<C-p>"] = "move_to_top",
+					["<C-n>"] = "move_to_bottom",
+					["<C-b>"] = "preview_scrolling_up",
+					["<C-d>"] = "preview_scrolling_down",
+					["<C-c>"] = false,
+					["<Up>"] = false,
+					["<Down>"] = false,
+					["<PageDown>"] = false,
+					["<PageUp>"] = false,
+					["<C-x>"] = "select_horizontal",
+					["<C-v>"] = "select_vertical",
+					["<C-t>"] = "select_tab",
+					["<M-q>"] = false,
+					["<C-q>"] = false,
+					["<C-l>"] = false,
+				},
+			},
+		},
+		pickers = {
+			colorscheme = {
+				enable_preview = true,
+			},
 		},
 		extensions = {
 			aerial = {

@@ -7,12 +7,39 @@ require("keymap.helpers")
 
 local plug_map = {
 	-- Plugin: vim-fugitive
-	-- ["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
-	-- ["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
+	["n|gps"] = map_cr("G push"):with_noremap():with_silent():with_desc("git: Push"),
+	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent():with_desc("git: Pull"),
+	["n|glg"] = map_cr("G log --stat"):with_noremap():with_silent():with_desc("git: stat log"),
+	["n|glgg"] = map_cr("G log --graph"):with_noremap():with_silent():with_desc("git: graph log"),
+	["n|glog"] = map_cr("G log --oneline --decorate --graph"):with_noremap():with_silent():with_desc("git: online log"),
+	["n|glol"] = map_cr('G log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"')
+		:with_noremap()
+		:with_silent()
+		:with_desc("git: pretty log"),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent():with_desc("git: Open git-fugitive"),
+	---- subkeymap in vim-fugitive:
+	---- '-' : stage or unstage the file under the cursor
+	---- 'U' : unstage everything
+	---- 'X' : discard changes
+	---- 'dv' : gvdiff with HEAD~1
+	---- 'dh' : ghdiff with HEAD~1
+	---- 'dq' : close the diff
+	---- 'o' : open file horizontal
+	---- 'gO' : open file vertical
+	---- 'C' : Open the commit containing the current file
+	---- 'gu' : Jump to "Untracked" section
+	---- 'gp' : Jump to "Unpushed" section
+	---- 'gU' : Jump to "Unstaged" section
+	---- 'gs' : Jump to "Staged" section
+	---- 'gI' : add current file to .gitignore
+	---- 'gi' : open .gitignore file
+	---- 'cc' : Create a commit
+	---- 'ca' : Amend the last commit and edit the message
 
 	-- Plugin: nvim-tree
 	["n|<leader>e"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	---- subkeymap in nvim-tree:
+	---- see ../modules/configs/tool/nvim-tree.lua:26
 
 	-- Plugin: sniprun
 	["v|<leader>sr"] = map_cr("SnipRun"):with_noremap():with_silent():with_desc("tool: Run code by range"),
@@ -54,7 +81,7 @@ local plug_map = {
 		:with_desc("terminal: Toggle float"),
 	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 
-	-- Plugin: trouble
+	-- Plugin: Trouble
 	["n|gt"] = map_cr("Trouble diagnostics toggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
 	["n|<leader>lw"] = map_cr("Trouble diagnostics toggle")
 		:with_noremap()
@@ -68,6 +95,12 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("lsp: Show document diagnostics"),
+
+	-- Plugin: buffer_manager
+	["n|<leader>b"] = map_cr("lua require('buffer_manager.ui').toggle_quick_menu()")
+		:with_noremap()
+		:with_silent()
+		:with_desc("buffer: Toggle buffer manager"),
 
 	-- Plugin: telescope
 	["n|<C-p>"] = map_callback(function()
@@ -116,6 +149,8 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("tool: Miscellaneous"),
+	---- subkeymap in telescope:
+	---- see ../modules/configs/tool/telescope.lua:45
 
 	-- Plugin: dap
 	["n|<F6>"] = map_callback(function()

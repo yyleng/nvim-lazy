@@ -14,7 +14,7 @@ return function()
 		mappings = {
 			-- Use a table to apply multiple mappings
 			edit = "e",
-			expand = { "<CR>", "<2-LeftMouse>" },
+			expand = { "h", "<CR>" },
 			open = "o",
 			remove = "d",
 			repl = "r",

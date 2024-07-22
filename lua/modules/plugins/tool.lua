@@ -1,49 +1,48 @@
 local tool = {}
 
+-- @func: Git 管理
+-- @keymap: ../../keymap/tool.lua:10
+-- @status: [DONE:]
 tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
 
--- @func: 代码层级树
+-- @func: 代码层级树 [Unnecessary]
 -- @keymap: 鼠标
--- @status: true ---------- all done
-tool["Bekaboo/dropbar.nvim"] = {
-	lazy = false,
-	config = require("tool.dropbar"),
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-		"nvim-telescope/telescope-fzf-native.nvim",
-	},
-}
+-- @status: Not Used
+-- tool["Bekaboo/dropbar.nvim"] = {
+-- 	lazy = false,
+-- 	config = require("tool.dropbar"),
+-- 	dependencies = {
+-- 		"nvim-tree/nvim-web-devicons",
+-- 		"nvim-telescope/telescope-fzf-native.nvim",
+-- 	},
+-- }
 
--- @func: 目录树 [OK]
--- @keymap: <keymap>
--- @status: true ---------- all done
+-- @func: 目录树
+-- @keymap: ../../keymap/tool.lua:40
+-- @status: [DONE:]
 tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
 	cmd = {
 		"NvimTreeToggle",
-		"NvimTreeOpen",
-		"NvimTreeFindFile",
-		"NvimTreeFindFileToggle",
-		"NvimTreeRefresh",
 	},
 	config = require("tool.nvim-tree"),
 }
 
--- @func: 复制修正到系统剪贴板 [OK]
+-- @func: 复制修正到系统剪贴板
 -- @keymap: y
--- @status: true ---------- all done
+-- @status: [DONE:]
 tool["ibhagwan/smartyank.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 	config = require("tool.smartyank"),
 }
 
--- @func: 运行代码片段 [OK]
--- @keymap: <keymap>
--- @status: true ---------- all done
+-- @func: 运行代码片段
+-- @keymap: ../../keymap/tool.lua:45
+-- @status: [DONE:]
 tool["michaelb/sniprun"] = {
 	lazy = true,
 	-- You need to cd to `~/.local/share/nvim/site/lazy/sniprun/` and execute `bash ./install.sh`,
@@ -53,9 +52,9 @@ tool["michaelb/sniprun"] = {
 	config = require("tool.sniprun"),
 }
 
--- @func: 虚拟终端 [OK]
--- @keymap: <keymap>
--- @status: true ---------- all done
+-- @func: 虚拟终端
+-- @keymap: ../../keymap/tool.lua:49
+-- @status: [DONE:]
 tool["akinsho/toggleterm.nvim"] = {
 	lazy = true,
 	cmd = {
@@ -69,27 +68,27 @@ tool["akinsho/toggleterm.nvim"] = {
 	config = require("tool.toggleterm"),
 }
 
--- @func: 展示代码错误、定义、引用等 [OK]
--- @keymap: <keymap>
--- @status: true ---------- all done
+-- @func: 展示代码错误,引用
+-- @keymap: ../../keymap/tool.lua:85
+-- @status: [DONE:]
 tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 	config = require("tool.trouble"),
 }
 
--- @func: 快捷键提示 [OK]
--- @keymap: <keymap>
--- @status: true ---------- all done
+-- @func: 快捷键提示
+-- @keymap: nil
+-- @status: [TODO: 补充提示配置]
 tool["folke/which-key.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("tool.which-key"),
 }
 
--- @func: 命令行模糊搜索以及自动补充 [OK]
+-- @func: 命令行模糊搜索以及自动补充
 -- @keymap: / | : | ?
--- @status: true ---------- all done
+-- @status: [DONE:]
 tool["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
@@ -97,9 +96,24 @@ tool["gelguy/wilder.nvim"] = {
 	dependencies = { "romgrk/fzy-lua-native" },
 }
 
+-- @func: 列出所有 buffer
+-- @keymap: ../../keymap/tool.lua:100
+-- @status: [DONE:]
+tool["j-morano/buffer_manager.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	dependencies = { { "nvim-lua/plenary.nvim" } },
+	config = function()
+		require("buffer_manager").setup()
+	end,
+}
+
 ----------------------------------------------------------------------
 --                        Telescope Plugins                         --
 ----------------------------------------------------------------------
+-- @func: 大工具箱
+-- @keymap: ../../keymap/tool.lua:106
+-- @status: [DONE:]
 tool["nvim-telescope/telescope.nvim"] = {
 	lazy = true,
 	cmd = "Telescope",
@@ -136,6 +150,9 @@ tool["nvim-telescope/telescope.nvim"] = {
 ----------------------------------------------------------------------
 --                           DAP Plugins                            --
 ----------------------------------------------------------------------
+-- @func: 调试器
+-- @keymap: ../../keymap/tool.lua:156
+-- @status: [DONE:]
 tool["mfussenegger/nvim-dap"] = {
 	lazy = true,
 	cmd = {

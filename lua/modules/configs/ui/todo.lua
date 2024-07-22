@@ -13,6 +13,8 @@ return function()
 				alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
 			},
 			TODO = { icon = icons.ui.Accepted, color = "info" },
+			DOING = { icon = icons.ui.Accepted, color = "error" },
+			DONE = { icon = icons.ui.Accepted, color = "warning" },
 			-- HACK = { icon = icons.ui.Fire, color = "warning" },
 			WARN = { icon = icons.diagnostics.Warning, color = "warning", alt = { "WARNING", "XXX" } },
 			PERF = { icon = icons.ui.Perf, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },

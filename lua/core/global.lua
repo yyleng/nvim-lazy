@@ -13,6 +13,20 @@ function global:load_variables()
 	self.home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
 end
 
+function global:open_file_at_line()
+	local current_file_directory = vim.fn.expand("%:p:h")
+	local fileline = vim.fn.expand("<cWORD>")
+	local absl_path = current_file_directory .. "/" .. fileline
+	local file, line = absl_path:match("^(.*):(%d+)$")
+
+	if file and line then
+		vim.cmd("edit " .. file)
+		vim.cmd(line)
+	else
+		vim.cmd("edit " .. fileline)
+	end
+end
+
 global:load_variables()
 
 return global

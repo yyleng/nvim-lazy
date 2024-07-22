@@ -93,4 +93,20 @@ local core_map = {
 	["n|<Down>"] = map_cmd(":res+5<CR>"),
 }
 
+-- 修复p 粘贴文本覆盖的问题
+vim.api.nvim_exec(
+	[[
+xnoremap <expr> p 'pgv"'.v:register.'y'
+	]],
+	false
+)
+
+-- 使得文件跳转可以跳转到指定行
+vim.api.nvim_set_keymap(
+	"n",
+	"gf",
+	":lua require('core.global').open_file_at_line()<CR>",
+	{ noremap = true, silent = true }
+)
+
 bind.nvim_load_mapping(core_map)

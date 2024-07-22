@@ -1,9 +1,8 @@
--- all ok
 local editor = {}
 
 -- @func: 自动补全括号
 -- @keymap: nil
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["m4xshen/autoclose.nvim"] = {
 	lazy = true,
 	event = "InsertEnter",
@@ -12,7 +11,7 @@ editor["m4xshen/autoclose.nvim"] = {
 
 -- @func: 加速大文件加载
 -- @keymap: nil
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
 	config = require("editor.bigfile"),
@@ -26,6 +25,9 @@ editor["LunarVim/bigfile.nvim"] = {
 -- Considering its steep learning curve as well as backward compatibility issues...
 --  > We have no plan to remove the above plugins for the time being.
 -- But as usual, you can always tweak the plugin to your liking.
+-- @func: above
+-- @keymap: nil
+-- @status: [TODO: 待取代之]
 editor["folke/flash.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -33,8 +35,8 @@ editor["folke/flash.nvim"] = {
 }
 
 -- @func: 代码注释
--- @keymap: n|gcc/gc , v|gc/gb , n|gbc/gb
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:10
+-- @status: [DONE:]
 editor["numToStr/Comment.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -42,17 +44,17 @@ editor["numToStr/Comment.nvim"] = {
 }
 
 -- @func: git diff 查看
--- @keymap: <leader>gd | <leader>gD | :Diffview...
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:44
+-- @status: [DONE:]
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
-	cmd = { "DiffviewOpen", "DiffviewClose" },
+	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
 	config = require("editor.diffview"),
 }
 
 -- @func: 多行文本对齐
 -- @keymap: gea | geA
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["echasnovski/mini.align"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -60,8 +62,8 @@ editor["echasnovski/mini.align"] = {
 }
 
 -- @func: 文本快速跳转
--- @keymap: <leader>h | <lerder>j
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:57
+-- @status: [DONE:]
 editor["smoka7/hop.nvim"] = {
 	lazy = true,
 	version = "*",
@@ -71,7 +73,7 @@ editor["smoka7/hop.nvim"] = {
 
 -- @func: 高亮鼠标所在位置的相同单词
 -- @keymap: nil
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["tzachar/local-highlight.nvim"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -80,7 +82,7 @@ editor["tzachar/local-highlight.nvim"] = {
 
 -- @func: 颜色高亮
 -- @keymap: nil
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["brenoprata10/nvim-highlight-colors"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -89,37 +91,40 @@ editor["brenoprata10/nvim-highlight-colors"] = {
 
 -- @func: 使用删除键取消搜索高亮时，可以再次搜索，且自动不高亮
 -- @keymap: n N
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
 
 -- @func: 以 sudo 的方式操作文件
--- @keymap: <A-s> save
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:61
+-- @status: [DONE:]
 editor["lambdalisue/suda.vim"] = {
 	lazy = true,
 	cmd = { "SudaRead", "SudaWrite" },
 	init = require("editor.suda"),
 }
 
+-- @func: 自动设置 tab 与空格
+-- @keymap: nil
+-- @status: [DONE:]
 editor["tpope/vim-sleuth"] = {
 	lazy = true,
 	event = { "BufNewFile", "BufReadPost", "BufFilePost" },
 }
 
 -- @func: 文本替换
--- @keymap: <leader>Ss | <leader>Sf | <leader>Sp
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:78
+-- @status: [DONE:]
 editor["nvim-pack/nvim-spectre"] = {
 	lazy = true,
 	cmd = "Spectre",
 }
 
 -- @func: vim 窗口控制
--- @keymap: <C-h/j/k/l> | <A-h/j/k/l> | <leader>Wh/j/k/l
--- @status: true ---------- all done
+-- @keymap: ../../keymap/editor.lua:64
+-- @status: [DONE:]
 editor["mrjones2014/smart-splits.nvim"] = {
 	lazy = true,
 	event = { "CursorHoldI", "CursorHold" },
@@ -128,7 +133,7 @@ editor["mrjones2014/smart-splits.nvim"] = {
 
 -- @func: 修改变量形式
 -- @keymap: :'n | crc', 'n | crm', 'n | crs' 最常用，更多用法请查阅帮助手册
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["tpope/vim-abolish"] = {
 	lazy = true,
 	event = { "CursorHoldI", "CursorHold" },
@@ -161,7 +166,7 @@ editor["tpope/vim-abolish"] = {
 
 -- @func: v V 框选
 -- @keymap: v -> 正选, V -> 反选(撤销)
--- @status: true ---------- all done
+-- @status: [DONE:]
 editor["terryma/vim-expand-region"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -191,20 +196,18 @@ vmap V <Plug>(expand_region_shrink)
 
 -- @func: 代码行拆分或合并
 -- @keymap: gS -> 拆分, gJ -> 合并
--- @status: true --------- all done
+-- @status: [DONE:]
 editor["AndrewRadev/splitjoin.vim"] = {
 	lazy = false,
 }
 
 -- @func: 翻译辞典
--- @keymap:
--- @status: true --------- all done
+-- @keymap: ../../keymap/editor.lua:107
+-- @status: [DONE:]
 -- online_translate:
 -- youdao https://ai.youdao.com/ has app_id and app_passwd
--- baidu https://fanyi-api.baidu.com/ app_id and app_passwd
+-- baidu https://fanyi-api.baidu.com/ has app_id and app_passwd
 editor["JuanZoran/Trans.nvim"] = {
-	lazy = true,
-	cmd = { "TranslateInput", "Translate" },
 	build = function()
 		require("Trans").install()
 	end,
@@ -215,6 +218,9 @@ editor["JuanZoran/Trans.nvim"] = {
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
 ----------------------------------------------------------------------
+-- @func: 代码高亮
+-- @keymap: nil
+-- @status: [DONE:]
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
 	build = function()

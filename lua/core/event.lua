@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			mapping.lsp(event.buf)
 
 			-- LSP Inlay Hints
+			-- 将代码参数名显示在函数调用处(以虚拟文本的形式))
 			local inlayhints_enabled = require("core.settings").lsp_inlayhints
 			local client = vim.lsp.get_client_by_id(event.data.client_id)
 			if client and client.server_capabilities.inlayHintProvider ~= nil then

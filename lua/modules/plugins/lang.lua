@@ -37,6 +37,19 @@ lang["iamcco/markdown-preview.nvim"] = {
 	build = ":call mkdp#util#install()",
 }
 
+-- @func: markdown in nvim
+-- @keymap: ../../keymap/lang.lua:16
+-- @status: [DONE:]
+lang["MeanderingProgrammer/render-markdown.nvim"] = {
+	lazy = true,
+	ft = "markdown",
+	config = require("lang.render-markdown"),
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"nvim-treesitter/nvim-treesitter",
+	},
+}
+
 lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",

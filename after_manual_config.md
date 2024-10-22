@@ -1,5 +1,6 @@
-1. config online translate
-   > add the following to the `$HOME/.local/share/nvim/site/lazy/Trans.nvim/Trans.json` file
+## config online translate
+
+> add the following to the `$HOME/.local/share/nvim/site/lazy/Trans.nvim/Trans.json` file
 
 ```json
 [
@@ -18,8 +19,14 @@
 ]
 ```
 
-2. install festival package
+## install festival package
 
 ```sh
 dnfi festival
+```
+
+## if need change copilot auth account
+
+```sh
+rm -fr ~/.config/github-copilot/
 ```

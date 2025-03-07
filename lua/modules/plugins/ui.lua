@@ -64,15 +64,6 @@ ui["nvim-lualine/lualine.nvim"] = {
 	config = require("ui.lualine"),
 }
 
--- @func: 调暗未使用的函数、变量、参数等
--- @keymap: nil
--- @status: [DONE:]
-ui["zbirenbaum/neodim"] = {
-	lazy = true,
-	event = "LspAttach",
-	config = require("ui.neodim"),
-}
-
 -- @func: 屏幕滚动
 -- @keymap: "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb",
 -- @status: [DONE:]
@@ -120,6 +111,12 @@ ui["anuvyklack/windows.nvim"] = {
 		"anuvyklack/animation.nvim",
 	},
 	config = require("ui.windows"),
+}
+
+ui["folke/edgy.nvim"] = {
+	lazy = true,
+	event = { "BufReadPre", "BufAdd", "BufNewFile" },
+	config = require("ui.edgy"),
 }
 
 return ui

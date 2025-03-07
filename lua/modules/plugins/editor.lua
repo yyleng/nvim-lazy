@@ -1,5 +1,14 @@
 local editor = {}
 
+-- @func: 高亮鼠标所在位置的相同单词
+-- @keymap: nil
+-- @status: [DONE:]
+editor["echasnovski/mini.cursorword"] = {
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("editor.cursorword"),
+}
+
 -- @func: 自动补全括号
 -- @keymap: nil
 -- @status: [DONE:]
@@ -69,15 +78,6 @@ editor["smoka7/hop.nvim"] = {
 	version = "*",
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
-}
-
--- @func: 高亮鼠标所在位置的相同单词
--- @keymap: nil
--- @status: [DONE:]
-editor["tzachar/local-highlight.nvim"] = {
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("editor.local-highlight"),
 }
 
 -- @func: 颜色高亮
@@ -207,6 +207,8 @@ editor["AndrewRadev/splitjoin.vim"] = {
 -- online_translate:
 -- youdao https://ai.youdao.com/ has app_id and app_passwd
 -- baidu https://fanyi-api.baidu.com/ has app_id and app_passwd
+-- @config_file: ~/.local/share/nvim/site/lazy/Trans.nvim/Trans.json
+-- @database: ~/.local/share/nvim/site/lazy/Trans.nvim/ultimate.db
 editor["JuanZoran/Trans.nvim"] = {
 	build = function()
 		require("Trans").install()

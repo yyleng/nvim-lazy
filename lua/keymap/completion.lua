@@ -4,7 +4,7 @@ local map_cmd = bind.map_cmd
 local map_callback = bind.map_callback
 
 local plug_map = {
-	["n|<A-f>"] = map_cmd("<Cmd>FormatToggle<CR>"):with_noremap():with_desc("formatter: Toggle format on save"),
+	["n|<A-S-f>"] = map_cmd("<Cmd>FormatToggle<CR>"):with_noremap():with_desc("formatter: Toggle format on save"),
 }
 bind.nvim_load_mapping(plug_map)
 
@@ -15,15 +15,12 @@ function mapping.lsp(buf)
 		-- LSP-related keymaps, ONLY effective in buffers with LSP(s) attached
 		["n|<leader>li"] = map_cr("LspInfo"):with_silent():with_buffer(buf):with_desc("lsp: Info"),
 		["n|<leader>lr"] = map_cr("LspRestart"):with_silent():with_buffer(buf):with_nowait():with_desc("lsp: Restart"),
-		-- ["n|go"] = map_cr("AerialToggle!"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
-		["n|go"] = map_cr("Lspsaga outline"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
-		-- ["n|go"] = map_cr("Trouble symbols"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
-		["n|gto"] = map_callback(function()
-				require("telescope").extensions.aerial.aerial()
+		["n|go"] = map_callback(function()
+				require("edgy").toggle("right")
 			end)
 			:with_silent()
 			:with_buffer(buf)
-			:with_desc("lsp: Toggle outline in Telescope"),
+			:with_desc("lsp: Toggle outline"),
 		["n|gs"] = map_callback(function()
 			vim.lsp.buf.signature_help()
 		end):with_desc("lsp: Signature help"),

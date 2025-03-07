@@ -8,18 +8,6 @@ tool["tpope/vim-fugitive"] = {
 	cmd = { "Git", "G" },
 }
 
--- @func: 代码层级树 [Unnecessary]
--- @keymap: 鼠标
--- @status: Not Used
--- tool["Bekaboo/dropbar.nvim"] = {
--- 	lazy = false,
--- 	config = require("tool.dropbar"),
--- 	dependencies = {
--- 		"nvim-tree/nvim-web-devicons",
--- 		"nvim-telescope/telescope-fzf-native.nvim",
--- 	},
--- }
-
 -- @func: 目录树
 -- @keymap: ../../keymap/tool.lua:40
 -- @status: [DONE:]

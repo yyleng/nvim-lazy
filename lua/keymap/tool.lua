@@ -35,9 +35,14 @@ local plug_map = {
 	---- 'gi' : open .gitignore file
 	---- 'cc' : Create a commit
 	---- 'ca' : Amend the last commit and edit the message
+	-- Plugin: edgy
+	["n|<leader>e"] = map_callback(function()
+			require("edgy").toggle("left")
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("filetree: Toggle"),
 
-	-- Plugin: nvim-tree
-	["n|<leader>e"] = map_cr("NvimTreeToggle"):with_noremap():with_silent():with_desc("filetree: Toggle"),
 	---- subkeymap in nvim-tree:
 	---- see ../modules/configs/tool/nvim-tree.lua:26
 

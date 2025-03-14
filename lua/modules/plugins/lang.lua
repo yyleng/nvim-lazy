@@ -68,10 +68,10 @@ lang["kawre/leetcode.nvim"] = {
 		"nvim-treesitter/nvim-treesitter",
 		"rcarriga/nvim-notify",
 		"nvim-tree/nvim-web-devicons",
-		{
-			"3rd/image.nvim",
-			config = require("lang.image"),
-		},
+		-- {
+		-- 	"3rd/image.nvim",
+		-- 	config = require("lang.image"),
+		-- },
 	},
 	config = require("lang.leetcode"),
 }

@@ -33,7 +33,7 @@ return function()
 					{ id = "breakpoints", size = 0.1 },
 				},
 				size = 0.3,
-				position = "right",
+				position = "left",
 			},
 			{
 				elements = {
@@ -45,7 +45,7 @@ return function()
 			},
 		},
 		controls = {
-			enabled = true,
+			enabled = false,
 			-- Display controls in this session
 			element = "repl",
 			icons = {

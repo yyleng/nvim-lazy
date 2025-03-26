@@ -65,15 +65,15 @@ local plug_map = {
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
 	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
-	["n|<F5>"] = map_cr("ToggleTerm direction=vertical")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-		:with_noremap()
-		:with_silent()
-		:with_desc("terminal: Toggle vertical"),
-	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
+	-- ["n|<F5>"] = map_cr("ToggleTerm direction=vertical")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("terminal: Toggle vertical"),
+	-- ["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
+	-- 	:with_noremap()
+	-- 	:with_silent()
+	-- 	:with_desc("terminal: Toggle vertical"),
+	-- ["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
 	["n|<A-d>"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
 		:with_noremap()
@@ -153,6 +153,18 @@ local plug_map = {
 	---- see ../modules/configs/tool/telescope.lua:45
 
 	-- Plugin: dap
+	["n|<leader>dr"] = map_callback(function()
+			require("dap").restart()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Restart Debug Session"),
+	["n|<F5>"] = map_callback(function()
+			require("dap").step_back()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Step back"),
 	["n|<F6>"] = map_callback(function()
 			require("dap").continue()
 		end)
@@ -189,12 +201,24 @@ local plug_map = {
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Step over"),
-	["n|<leader>db"] = map_callback(function()
+	["n|<leader>dB"] = map_callback(function()
 			require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end)
 		:with_noremap()
 		:with_silent()
 		:with_desc("debug: Set breakpoint with condition"),
+	["n|<leader>db"] = map_callback(function()
+			require("dap").clear_breakpoints()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: Clean all breakpoints"),
+	["n|<leader>df"] = map_callback(function()
+			require("dap").focus_frame()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("debug: jump to frame"),
 	["n|<leader>dc"] = map_callback(function()
 			require("dap").run_to_cursor()
 		end)

@@ -43,6 +43,7 @@ return function()
 					return is_windows and "pythonw.exe" or "python3"
 				end
 			end,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			-- NOTE: This setting is for people using venv
@@ -69,6 +70,7 @@ return function()
 					return is_windows and "pythonw.exe" or "python3"
 				end
 			end,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 	}
 end

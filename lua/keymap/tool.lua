@@ -65,15 +65,6 @@ local plug_map = {
 		:with_silent()
 		:with_desc("terminal: Toggle vertical"),
 	["t|<A-\\>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
-	-- ["n|<F5>"] = map_cr("ToggleTerm direction=vertical")
-	-- 	:with_noremap()
-	-- 	:with_silent()
-	-- 	:with_desc("terminal: Toggle vertical"),
-	-- ["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>")
-	-- 	:with_noremap()
-	-- 	:with_silent()
-	-- 	:with_desc("terminal: Toggle vertical"),
-	-- ["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle vertical"),
 	["n|<A-d>"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 	["i|<A-d>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>")
 		:with_noremap()
@@ -82,7 +73,10 @@ local plug_map = {
 	["t|<A-d>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent():with_desc("terminal: Toggle float"),
 
 	-- Plugin: Trouble
-	["n|gt"] = map_cr("Trouble diagnostics toggle"):with_noremap():with_silent():with_desc("lsp: Toggle trouble list"),
+	["n|<leader>k"] = map_cr("Trouble diagnostics toggle")
+		:with_noremap()
+		:with_silent()
+		:with_desc("lsp: Toggle trouble list"),
 	["n|<leader>lw"] = map_cr("Trouble diagnostics toggle")
 		:with_noremap()
 		:with_silent()

@@ -22,6 +22,7 @@ return function()
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			terminal = "integrated",
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			name = "Debug (with args)",
@@ -32,6 +33,7 @@ return function()
 			cwd = "${workspaceFolder}",
 			stopOnEntry = false,
 			terminal = "integrated",
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			name = "Attach to a running process",
@@ -40,6 +42,7 @@ return function()
 			program = utils.input_exec_path(),
 			stopOnEntry = false,
 			waitFor = true,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 	}
 	dap.configurations.cpp = dap.configurations.c

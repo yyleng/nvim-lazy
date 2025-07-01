@@ -42,6 +42,7 @@ return function()
 			showLog = true,
 			showRegisters = true,
 			stopOnEntry = false,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			type = "go",
@@ -55,6 +56,7 @@ return function()
 			showLog = true,
 			showRegisters = true,
 			stopOnEntry = false,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			type = "go",
@@ -69,6 +71,7 @@ return function()
 			showLog = true,
 			showRegisters = true,
 			stopOnEntry = false,
+			justMyCode = false, -- enable python debug 3rdparty code
 		},
 		{
 			type = "go",
